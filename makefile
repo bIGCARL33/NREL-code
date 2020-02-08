@@ -1,13 +1,13 @@
-all:
+all: #all in one command
 	make clean
 	make build
 	make pipe
 	make run
 
-build:
+build: #compiles the code
 	gcc spa_tester.c spa.c sampa.c bird.c -lm -o spa_tester
 
-clean:
+clean: #removes output and executables
 	rm -rf spa_tester
 	rm -rf *.out
 
