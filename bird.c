@@ -86,7 +86,9 @@ void bird_calculate(bird_data *b)
 			bird_horiz(b->direct_normal_mod, coszen, ias, b->albedo, rs, &b->global_horiz_mod, &b->diffuse_horiz_mod);
 		}
 
-	} else {
+	} 
+	else 
+	{
 		b->amass = b->direct_normal = b->global_horiz = b->diffuse_horiz = 0;
 		b->direct_normal_mod = b->global_horiz_mod = b->diffuse_horiz_mod = 0;
 	}

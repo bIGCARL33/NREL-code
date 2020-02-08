@@ -289,39 +289,22 @@ const double MB_TERMS[COUNT][TERM_COUNT]=
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 double fourth_order_polynomial(double a, double b, double c, double d, double e, double x)
-{
-    return (((a*x + b)*x + c)*x + d)*x + e;
-}
+{return (((a*x + b)*x + c)*x + d)*x + e;}
 
 double moon_mean_longitude(double jce)
-{
-	return limit_degrees(fourth_order_polynomial(
-		                 -1.0/65194000, 1.0/538841, -0.0015786, 481267.88123421, 218.3164477, jce));
-}
+{return limit_degrees(fourth_order_polynomial(-1.0/65194000, 1.0/538841, -0.0015786, 481267.88123421, 218.3164477, jce));}
 
 double moon_mean_elongation(double jce)
-{
-	return limit_degrees(fourth_order_polynomial(
-		                 -1.0/113065000, 1.0/545868, -0.0018819, 445267.1114034, 297.8501921, jce));
-}
+{return limit_degrees(fourth_order_polynomial(-1.0/113065000, 1.0/545868, -0.0018819, 445267.1114034, 297.8501921, jce));}
 
 double sun_mean_anomaly(double jce)
-{
-	return limit_degrees(third_order_polynomial(
-		                 1.0/24490000, -0.0001536, 35999.0502909, 357.5291092, jce));
-}
+{return limit_degrees(third_order_polynomial(1.0/24490000, -0.0001536, 35999.0502909, 357.5291092, jce));}
 
 double moon_mean_anomaly(double jce)
-{
-	return limit_degrees(fourth_order_polynomial(
-		                 -1.0/14712000, 1.0/69699, 0.0087414, 477198.8675055, 134.9633964, jce));
-}
+{return limit_degrees(fourth_order_polynomial(-1.0/14712000, 1.0/69699, 0.0087414, 477198.8675055, 134.9633964, jce));}
 
 double moon_latitude_argument(double jce)
-{
-	return limit_degrees(fourth_order_polynomial(
-		                 1.0/863310000, -1.0/3526000, -0.0036539, 483202.0175233, 93.2720950, jce));
-}
+{return limit_degrees(fourth_order_polynomial(1.0/863310000, -1.0/3526000, -0.0036539, 483202.0175233, 93.2720950, jce));}
 
 void moon_periodic_term_summation(double d, double m, double m_prime, double f, double jce,
 								  const double terms[COUNT][TERM_COUNT], double *sin_sum, double *cos_sum)
@@ -356,20 +339,9 @@ void moon_longitude_and_latitude(double jce, double l_prime, double f, double m_
 	*beta        = limit_degrees(          (b + delta_b)/1000000);
 }
 
-double moon_earth_distance(double r)
-{
-	return 385000.56 + r/1000;
-}
-
-double moon_equatorial_horiz_parallax(double delta)
-{
-	return rad2deg(asin(6378.14/delta));
-}
-
-double apparent_moon_longitude(double lamda_prime, double del_psi)
-{
-	return lamda_prime + del_psi;
-}
+double moon_earth_distance(double r){return 385000.56 + r/1000;}
+double moon_equatorial_horiz_parallax(double delta){return rad2deg(asin(6378.14/delta));}
+double apparent_moon_longitude(double lamda_prime, double del_psi){return lamda_prime + del_psi;}
 
 double angular_distance_sun_moon(double zen_sun, double azm_sun, double zen_moon, double azm_moon)
 {
@@ -379,15 +351,10 @@ double angular_distance_sun_moon(double zen_sun, double azm_sun, double zen_moon
 	return rad2deg(acos(cos(zs)*cos(zm) + sin(zs)*sin(zm)*cos(deg2rad(azm_sun - azm_moon))));
 }
 
-double sun_disk_radius(double r)
-{
-	return 959.63/(3600.0 * r);
-}
+double sun_disk_radius(double r){return 959.63/(3600.0 * r);}
 
 double moon_disk_radius(double e, double pi, double cap_delta)
-{
-	return 358473400*(1 + sin(deg2rad(e))*sin(deg2rad(pi)))/(3600.0 * cap_delta);
-}
+{return 358473400*(1 + sin(deg2rad(e))*sin(deg2rad(pi)))/(3600.0 * cap_delta);}
 
 void sul_area(double ems, double rs, double rm, double *a_sul, double *a_sul_pct)
 {
