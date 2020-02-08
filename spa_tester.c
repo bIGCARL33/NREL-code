@@ -1,6 +1,3 @@
-
-
-
 /////////////////////////////////////////////
 //          SPA TESTER for SPA.C           //
 //                                         //
@@ -37,22 +34,22 @@ int main (int argc, char *argv[])
 
     //enter required input values into SPA structure
 
-    spa.year          = 2003;
-    spa.month         = 10;
-    spa.day           = 17;
-    spa.hour          = 12;
-    spa.minute        = 30;
-    spa.second        = 30;
-    spa.timezone      = -7.0;
+    spa.year          = 2020;
+    spa.month         = 2;
+    spa.day           = 7;
+    spa.hour          = 18;
+    spa.minute        = 32;
+    spa.second        = 16;
+    spa.timezone      = -6.0;
     spa.delta_ut1     = 0;
     spa.delta_t       = 67;
-    spa.longitude     = -105.1786;
-    spa.latitude      = 39.742476;
-    spa.elevation     = 1830.14;
-    spa.pressure      = 820;
+    spa.longitude     = -97.7526784;
+    spa.latitude      = 30.286643200000004;
+    spa.elevation     = 149;
+    spa.pressure      = 1032.849;
     spa.temperature   = 11;
-    spa.slope         = 30;
-    spa.azm_rotation  = -10;
+    spa.slope         = 0;
+    spa.azm_rotation  = 180;
     spa.atmos_refract = 0.5667;
     spa.function      = SPA_ALL;
 
@@ -84,7 +81,8 @@ int main (int argc, char *argv[])
         sec = 60.0*(min - (int)min);
         printf("Sunset:        %02d:%02d:%02d Local Time\n", (int)(spa.sunset), (int)min, (int)sec);
 
-    } else printf("SPA Error Code: %d\n", result);
+    } 
+    else printf("SPA Error Code: %d\n", result);
 
     return 0;
 }
