@@ -7,7 +7,7 @@ all: #all in one command
 	make run
 
 build: #compiles the code
-	gcc spa_tester.c spa.c sampa.c bird.c -lm -o spa_tester
+	gcc spa_tester.c spa.c bird.c -lm -o spa_tester
 
 clean: #removes output and executables
 	rm -rf spa_tester
