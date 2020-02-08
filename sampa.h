@@ -61,7 +61,8 @@
 #define __sun_and_moon_position_algorithm_header
 
 #include "spa.h"
-
+#include <math.h>
+#include "bird.h"
 //enumeration for function codes to select desired final outputs from SAMPA
 enum 
 {
@@ -69,7 +70,7 @@ enum
     SAMPA_ALL      //calculate all values
 };
 
-struct
+typedef struct
 {
 	//-----------------Intermediate MPA OUTPUT VALUES--------------------   
 	
