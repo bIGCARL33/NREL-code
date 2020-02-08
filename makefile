@@ -1,3 +1,5 @@
+#Solar Energy
+
 all: #all in one command
 	make clean
 	make build
