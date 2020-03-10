@@ -25,16 +25,50 @@
 
 #include <stdio.h>
 #include "spa.h"  //include the SPA header file
-
+#include <time.h>
+#include "date.c"
+int * get_date(char* arg)
+{
+    //9 21:57:38 2020
+    // day month hour min sec year
+    return NULL;
+}
 int main (int argc, char *argv[])
 {
+
+    //get the time
+    time_t current_time;
+    char* c_time_string;
+
+    current_time = time(NULL);
+
+    if (current_time == ((time_t)-1))
+    {
+        (void) fprintf(stderr, "Failure to obtain the current time.\n");
+        return -1;
+    }
+    c_time_string = ctime(&current_time);
+
+    if (c_time_string == NULL)
+    {
+        (void) fprintf(stderr, "Failure to convert the current time.\n");
+        return -1;
+    }
+
+    /* Print to stdout. ctime() has already added a terminating newline character. */
+    (void) printf("%s", c_time_string);
+
+    char *year = &c_time_string[20];
+    printf("%s", year);
+
+
     spa_data spa;  //declare the SPA structure
     int result;
     float min, sec;
 
     //enter required input values into SPA structure
 
-    spa.year          = 2020;
+    spa.year          = atoi(year);
     spa.month         = 2;
     spa.day           = 7;
     spa.hour          = 18;
